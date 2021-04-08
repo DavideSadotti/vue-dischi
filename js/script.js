@@ -7,7 +7,8 @@ var app = new Vue(
         "Tutti"
       ],
       count: 0,
-      selected: "Tutti"
+      selected: "Tutti",
+      order: ""
     },
     methods: {
       genre: function(){
@@ -19,19 +20,20 @@ var app = new Vue(
         }
         this.count = 0;
       },
-      // select: function(){
-      //   for(var i = 0; i < this.cdList.length){
-      //     if(this.selected != ""){
-      //
-      //     }
-      //   }
-      // }
+      ordina: function(a ,b){
+        this.cdList.sort((a, b) => {
+          if(this.order == "asc"){
+            return a.year - b.year;
+          }else if(this.order == "dis"){
+            return b.year - a.year;
+          }
+        });
+      }
     },
     mounted: function(){
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((risposta) => {
           this.cdList = risposta.data.response;
-          this.genre;
       });
     }
   }

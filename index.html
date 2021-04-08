@@ -22,9 +22,15 @@
     <main>
       <div id="app">
 
-        <select @click="genre" v-model="selected">
+        <select @click="genre" v-model="selected" class="genere">
           <option disabled value="">Scegli il genere</option>
           <option v-for="genre in genreList" v-bind:value="genre">{{ genre }}</option>
+        </select>
+
+        <select @click="ordina" v-model="order" class="ordina">
+          <option disabled value="">Scegli l'ordine</option>
+          <option value="asc">Più Vecchio</option>
+          <option value="dis">Più Nuovo</option>
         </select>
 
         <div class="container">
@@ -35,7 +41,7 @@
             <p>{{ cd.year }}</p>
           </div>
         </div>
-
+        <button type="button" @click="ordina"></button>
       </div>
     </main>
 
