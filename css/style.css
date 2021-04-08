@@ -26,7 +26,8 @@ main{
   padding-top: 70px;
 }
 
-#app{
+.container{
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -54,4 +55,17 @@ main{
 .album p{
   color: rgba(255, 255, 255, 0.5);
   margin: 10px;
+}
+
+select{
+  position: fixed;
+  right: 50px;
+  top: 20px;
+  background-color: #1E2D3B;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+  outline: none;
 }

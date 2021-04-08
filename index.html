@@ -21,13 +21,21 @@
     <!-- CORPO DELLA PAGINA -->
     <main>
       <div id="app">
-        <div v-for="cd in cdList" class="album">
-          <img :src="cd.poster" alt=""></img>
-          <h3>{{ cd.title }}</h3>
-          <p>{{ cd.author }}</p>
-          <p>{{ cd.year }}</p>
+
+        <select @click="genre" v-model="selected">
+          <option disabled value="">Scegli il genere</option>
+          <option v-for="genre in genreList" v-bind:value="genre">{{ genre }}</option>
+        </select>
+
+        <div class="container">
+          <div v-for="cd in cdList" class="album" v-if="cd.genre == selected || selected == 'Tutti'">
+            <img :src="cd.poster" alt=""></img>
+            <h3>{{ cd.title }}</h3>
+            <p>{{ cd.author }}</p>
+            <p>{{ cd.year }}</p>
+          </div>
         </div>
-        <button type="button" @click="genre"></button>
+
       </div>
     </main>
 

@@ -3,8 +3,11 @@ var app = new Vue(
     el: "#app",
     data: {
       cdList: [],
-      genreList: [],
-      count: 0
+      genreList: [
+        "Tutti"
+      ],
+      count: 0,
+      selected: "Tutti"
     },
     methods: {
       genre: function(){
@@ -15,8 +18,14 @@ var app = new Vue(
           this.count++;
         }
         this.count = 0;
-        console.log(this.genreList);
-      }
+      },
+      // select: function(){
+      //   for(var i = 0; i < this.cdList.length){
+      //     if(this.selected != ""){
+      //
+      //     }
+      //   }
+      // }
     },
     mounted: function(){
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
